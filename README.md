@@ -17,7 +17,7 @@ graph TD
         D7[sql]
     end
 
-    D --> E[具体实现类将接口调用转换为 \n 针对特定数据库的API请求];
+    D --> E[具体实现类将接口调用转换为 针对特定数据库的API请求];
     E --> F[特定数据库 (如 Elasticsearch, Infinity)];
     F --> E;
     E --> D;
