@@ -1,6 +1,28 @@
 # ai-papers
 收集AI领域论文，如果是PDF转换为Markdown格式，如果是英文转换为中文方式。PDF转换中涉及数学公式可能存在错误，需要参照原始PDF对应查看
+```mermaid
+graph TD
+    A[应用程序] --> B{选择/配置 DocStore 实现};
+    B --> C[实例化具体的 DocStoreConnection 实现类 \n (如 ElasticsearchDocStore, InfinityDocStore)];
+    C --> D[通过 DocStoreConnection 接口调用方法];
 
+    subgraph "通过接口调用方法"
+        direction LR
+        D1[createIdx / deleteIdx / indexExist]
+        D2[insert / update / delete]
+        D3[构建查询参数 (condition, MatchExpr, OrderByExpr 等)]
+        D3 --> D4[search]
+        D4 --> D5[处理搜索结果 (getTotal, getChunkIds, getFields 等)]
+        D6[get]
+        D7[sql]
+    end
+
+    D --> E[具体实现类将接口调用转换为 \n 针对特定数据库的API请求];
+    E --> F[特定数据库 (如 Elasticsearch, Infinity)];
+    F --> E;
+    E --> D;
+    D --> A;
+```
 ```mermaid
 graph TD
     A[启动 task_executor.py] --> B{初始化};
