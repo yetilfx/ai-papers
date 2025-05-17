@@ -10,15 +10,15 @@ graph TD
         direction LR
         D1[createIdx / deleteIdx / indexExist]
         D2[insert / update / delete]
-        D3[构建查询参数 (condition, MatchExpr, OrderByExpr 等)]
+        D3["构建查询参数 (condition, MatchExpr, OrderByExpr 等)"]
         D3 --> D4[search]
-        D4 --> D5[处理搜索结果 (getTotal, getChunkIds, getFields 等)]
+        D4 --> D5["处理搜索结果 (getTotal, getChunkIds, getFields 等)"]
         D6[get]
         D7[sql]
     end
 
     D --> E[具体实现类将接口调用转换为 针对特定数据库的API请求];
-    E --> F[特定数据库 (如 Elasticsearch, Infinity)];
+    E --> F["特定数据库 (如 Elasticsearch, Infinity)"];
     F --> E;
     E --> D;
     D --> A;
