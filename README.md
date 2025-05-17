@@ -3,7 +3,7 @@
 ```mermaid
 graph TD
     A[应用程序] --> B{选择/配置 DocStore 实现};
-    B --> C[“实例化具体的 DocStoreConnection 实现类   (如 ElasticsearchDocStore, InfinityDocStore)”];
+    B --> C["实例化具体的 DocStoreConnection 实现类  (如 ElasticsearchDocStore, InfinityDocStore)"];
     C --> D[通过 DocStoreConnection 接口调用方法];
 
     subgraph "通过接口调用方法"
